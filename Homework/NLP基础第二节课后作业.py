@@ -25,6 +25,10 @@ def count_n_grams(data, n, start_token = "<s>", end_token = "<e>") -> 'dict':
       # 请填充如下代码
       # 将当前生成的N-gram对加入到N-Grams 字典中
       # 如果已存在当前的N-Gram则对计数+1
+      if n_gram in n_grams:
+        n_grams[n_gram] = n_grams[n_gram] + 1 
+      else:
+        n_grams[n_gram] = 1
       
         
   return n_grams
@@ -46,6 +50,7 @@ def prob_for_single_word(word, previous_n_gram, n_gram_counts, nplus1_gram_count
 
   # 填充如下代码
   # 计算当前词与上一个n-gram组成词对的频数
+  nplus1_gram_count = nplus1_gram_counts[nplus1_gram] if nplus1_gram in nplus1_gram_counts else 0
   
 
   # 计算分子
